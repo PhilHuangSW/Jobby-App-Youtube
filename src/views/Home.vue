@@ -3,6 +3,16 @@
     <b-row align-v="center">
       <job-card v-for="job in jobs" :key="job.id" :name="job.name"></job-card>
     </b-row>
+    <b-pagination
+      v-model="currentPage"
+      :total-rows="rows"
+      :per-page="perPage"
+      first-text="First"
+      prev-text="Prev"
+      next-text="Next"
+      last-text="Last"
+      >
+    </b-pagination>
   </b-container>
 </template>
 
@@ -20,7 +30,10 @@ export default {
   },
   data(){
     return {
-      jobs: []
+      jobs: [],
+      currentPage: 1,
+      rows: 1,
+      perPage: 3
     }
   },
   methods: {
@@ -28,6 +41,7 @@ export default {
       const res = await fetch("jobs.json");
       const val = await res.json();
       this.jobs = val;
+      this.rows = this.jobs.length;
       console.log(val);
     }
   }
