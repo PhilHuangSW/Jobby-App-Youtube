@@ -1,3 +1,4 @@
+// import { search } from "core-js/fn/symbol";
 import Vue from "vue";
 import Vuex from "vuex";
 
@@ -42,6 +43,22 @@ export default new Vuex.Store({
       const start = (currentPage - 1) * perPage;
       const jobs = state.jobs.slice(start, start + 3);
       commit("SET_DISPLAY_JOBS", jobs);
+    },
+    updatePagination({commit, dispatch}, {myJson, currentPage, perPage}) {
+      commit("SET_JOBS", myJson);
+      commit("SET_ROWS", myJson.length);
+      dispatch("paginate", {currentPage, perPage});
+    },
+    async search({dispatch}, {text}) {
+      const myJson = await this.dispatch("fetchData");
+      const values = myJson.filter(val=> 
+        val.name.toLowerCase().includes(text.toLowerCase())
+      );
+      dispatch("updatePagination", {
+        myJson: values, 
+        currentPage: 1, 
+        perPage: 3
+      });
     }
   },
   getters: {
