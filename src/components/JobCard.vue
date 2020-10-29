@@ -10,11 +10,19 @@
           style="max-width:20rem"
           class="mb-2"
           footer="Card Footer"
-          >
+        >
           <b-card-text>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio earum alias molestiae dicta.
           </b-card-text>
-          <b-button variant="primary" v-b-tooltip.hover title="Apply Here">Apply</b-button>
+          <b-button 
+            v-b-modal="modalId" 
+            variant="primary" 
+            v-b-tooltip.hover 
+            title="Apply Here"
+            >Apply</b-button>
+          <b-modal :id="modalId" title="Apply here info">
+            <p class="my-4">Hello form modal</p>
+          </b-modal>
         </b-card>
       </b-col>
   </div>
@@ -22,8 +30,13 @@
 
 <script>
   export default {
-    props: ["name"]
-  }
+    props: ["name", "id"],
+    computed: {
+      modalId() {
+        return `modal-${this.id}`;
+      }
+    }
+  };
 </script>
 
 <style lang="scss" scoped>
