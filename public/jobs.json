@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Twitter",
+    "id": 1
+  },
+  {
+    "name": "Facebook",
+    "id": 2
+  },
+  {
+    "name": "Google",
+    "id": 3
+  },
+  {
+    "name": "Amazon",
+    "id": 4
+  },
+  {
+    "name": "Netflix",
+    "id": 5
+  },
+  {
+    "name": "Apple",
+    "id": 6
+  },
+  {
+    "name": "Uber",
+    "id": 7
+  },
+  {
+    "name": "Disney",
+    "id": 8
+  },
+  {
+    "name": "Lyft",
+    "id": 9
+  }
+]
