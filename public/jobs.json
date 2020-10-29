@@ -34,5 +34,29 @@
   {
     "name": "Lyft",
     "id": 9
+  },
+  {
+    "name": "Microsoft",
+    "id": 10
+  },
+  {
+    "name": "Alphabet",
+    "id": 11
+  },
+  {
+    "name": "Visa",
+    "id": 12
+  },
+  {
+    "name": "Mastercard",
+    "id": 13
+  },
+  {
+    "name": "AT&T",
+    "id": 14
+  },
+  {
+    "name": "Verizon",
+    "id": 15
   }
 ]
