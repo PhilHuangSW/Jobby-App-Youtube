@@ -9,6 +9,7 @@ export default new Vuex.Store({
     jobs: [],
     displayJobs: [],
     rows: 0,
+    showSpinner: false
   },
   mutations: {
     SET_JOBS(state, jobs) {
@@ -19,15 +20,20 @@ export default new Vuex.Store({
     },
     SET_DISPLAY_JOBS(state, displayJobs) {
       state.displayJobs = displayJobs;
+    },
+    SET_SPINNER(state, spinner) {
+      state.showSpinner = spinner;
     }
   },
   actions: {
-    fetchData() {
+    fetchData({commit}) {
+      commit("SET_SPINNER", true);
       return new Promise(resolve=> {
         setTimeout(async ()=> {
           const res = await fetch("jobs.json");
           const val = await res.json();
           resolve(val);
+          commit("SET_SPINNER", false);
         }, 1000);
       });
     },
@@ -70,6 +76,9 @@ export default new Vuex.Store({
     },
     displayJobs(state) {
       return state.displayJobs
+    },
+    showSpinner(state) {
+      return state.showSpinner;
     }
   },
   modules: {}

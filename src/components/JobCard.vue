@@ -14,7 +14,7 @@
           <b-card-text>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio earum alias molestiae dicta.
           </b-card-text>
-          <b-button variant="primary">Apply</b-button>
+          <b-button variant="primary" v-b-tooltip.hover title="Apply Here">Apply</b-button>
         </b-card>
       </b-col>
   </div>
